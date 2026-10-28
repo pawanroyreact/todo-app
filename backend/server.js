@@ -2,17 +2,15 @@
 import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
+import todoRoutes from "./routes/todo.route.js";
 
 // Basic Setup
 const app = express();
 dotenv.config();
 
 // Middlewares
-
-// Routes
-app.get("/", (req, res) => {
-  res.send("server is ready👌");
-});
+app.use("/api/todos", todoRoutes);
+app.use(express.json());
 
 // Start the server and connect Database
 app.listen(5000, () => {
