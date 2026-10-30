@@ -9,8 +9,8 @@ const app = express();
 dotenv.config();
 
 // Middlewares
-app.use("/api/todos", todoRoutes);
 app.use(express.json());
+app.use("/api/todos", todoRoutes);
 
 // Start the server and connect Database
 app.listen(5000, () => {
